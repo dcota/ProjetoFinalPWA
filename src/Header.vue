@@ -1,7 +1,7 @@
 <template>
-    <div class="container-fluid p-3">
-    <img src="../src/assets/logo.jpg" alt="">
-    </div>
+    <section class="container-fluid p-3">
+        <router-link to="/"><img src="../src/assets/logo.jpg" alt="" ></router-link>
+    </section>
 </template>
 
 <style scoped>
@@ -16,4 +16,4 @@
         max-width: 300px;
         height: auto;
     }
-</style>
+</style>    

@@ -9,7 +9,7 @@
     <section class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link to="/" class="nb">INSCRIÇÕES</router-link>
+          <router-link to="/Enrollment" class="nb">INSCRIÇÕES</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/" class="nb">AVISOS</router-link>
@@ -18,13 +18,13 @@
           <router-link to="/" class="nb">SOBRE O CLUBE</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/Main" class="nb">PROJETOS</router-link>
+          <router-link to="/Notif" class="nb">PROJETOS</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/Main" class="nb">CONTACTOS</router-link>
+          <router-link to="/Admin" class="nb">CONTACTOS</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/" class="nb">LOGIN</router-link>
+          <router-link to="/Login" class="nb">LOGIN</router-link>
         </li>
       </ul>
     </section>
