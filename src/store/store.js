@@ -1,7 +1,7 @@
 /*
 MEIW - Programação Web Avançada - projeto final
 Auhtor: Duarte Cota
-Description: implementation of the storage component
+Description: implementation of vuex storage component
 */
 
 import { createStore } from "vuex"
