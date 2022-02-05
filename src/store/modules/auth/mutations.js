@@ -1,3 +1,9 @@
+/*
+MEIW - Programação Web Avançada - projeto final
+Auhtor: Duarte Cota
+Description: implementation of project mutations of the autentication state
+*/
+
 import { SET_USER_TOKEN_DATA_MUTATION, SET_AUTO_LOGOUT_MUTATION } from "../../storeconstants";
 
 export default {

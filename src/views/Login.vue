@@ -1,8 +1,14 @@
+/*
+MEIW - Programação Web Avançada - projeto final
+Auhtor: Duarte Cota
+Description: implementation of the view Login
+*/
+
 <template>
-  <div class="container">
-    <div class="wrapper">
+  <section class="container">
+    <section class="wrapper">
       <form class="form-signin" v-on:submit.prevent="login">
-        <div class="alert alert-danger" v-if="error">{{ error }}</div>
+        <section class="alert alert-danger" v-if="error">{{ error }}</section>
         <h2 class="form-signin-heading">Login</h2>
         <input
           type="text"
@@ -25,8 +31,8 @@
           Submeter
         </button>
       </form>
-    </div>
-  </div>
+    </section>
+  </section>
 </template>
 
 <style scoped>

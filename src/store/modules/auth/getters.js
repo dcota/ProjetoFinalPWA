@@ -1,3 +1,9 @@
+/*
+MEIW - Programação Web Avançada - projeto final
+Auhtor: Duarte Cota
+Description: implementation of getters to return the stored token, the state of the autentication and the user level
+*/
+
 import { 
     GET_USER_TOKEN_GETTER, 
     IS_USER_AUTHENTICATED_GETTER , 

@@ -1,3 +1,9 @@
+/*
+MEIW - Programação Web Avançada - projeto final
+Auhtor: Duarte Cota
+Description: implementation of the view Gestão de Alunos (Admin)
+*/
+
 <template>
   <section class="container">
     <section class="row mt-3 text-center">

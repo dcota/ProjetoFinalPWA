@@ -1,3 +1,9 @@
+/*
+MEIW - Programação Web Avançada - projeto final
+Auhtor: Duarte Cota
+Description: implementation of the navbar
+*/
+
 <template>
   <nav class="navbar navbar-expand-lg fixed-top">
     <section class="container-fluid">
@@ -18,14 +24,14 @@
         id="navbarSupportedContent"
       >
         <ul class="navbar-nav">
-          <li class="nav-item" v-if="isAuthenticated && level=='student'">
-            <router-link to="/Enrollment" class="nb">VER CONTA</router-link>
+          <li class="nav-item" v-if="isAuthenticated && level == 'student'">
+            <router-link to="/" class="nb">VER CONTA</router-link>
           </li>
           <li class="nav-item" v-if="!isAuthenticated">
             <router-link to="/Enrollment" class="nb">INSCRIÇÕES</router-link>
           </li>
           <li class="nav-item" v-if="!isAuthenticated">
-            <router-link to="/" class="nb">AVISOS</router-link>
+            <router-link to="/News" class="nb">NOTÍCIAS</router-link>
           </li>
           <li class="nav-item" v-if="!isAuthenticated">
             <router-link to="/" class="nb">SOBRE O CLUBE</router-link>
@@ -36,10 +42,10 @@
           <li class="nav-item" v-if="!isAuthenticated">
             <router-link to="/" class="nb">CONTACTOS</router-link>
           </li>
-          <li class="nav-item" v-if="isAuthenticated && level=='admin'">
+          <li class="nav-item" v-if="isAuthenticated && level == 'admin'">
             <router-link to="notif" class="nb">CRIAR NOTIFICAÇÃO</router-link>
           </li>
-          <li class="nav-item" v-if="isAuthenticated && level=='admin'">
+          <li class="nav-item" v-if="isAuthenticated && level == 'admin'">
             <router-link to="/Admin" class="nb">GESTÃO DE ALUNOS</router-link>
           </li>
           <li class="nav-item" v-if="!isAuthenticated">
@@ -97,13 +103,13 @@ import { mapActions, mapGetters } from "vuex";
 import {
   IS_USER_AUTHENTICATED_GETTER,
   LOGOUT_ACTION,
-  GET_USER_LEVEL_GETTER
-} from "./store/storeconstants";
+  GET_USER_LEVEL_GETTER,
+} from "../store/storeconstants";
 export default {
   computed: {
     ...mapGetters("auth", {
       isAuthenticated: IS_USER_AUTHENTICATED_GETTER,
-      level: GET_USER_LEVEL_GETTER
+      level: GET_USER_LEVEL_GETTER,
     }),
   },
   methods: {

@@ -1,10 +1,16 @@
+/*
+MEIW - Programação Web Avançada - projeto final
+Auhtor: Duarte Cota
+Description: implementation of the view Ficha de Inscrição
+*/
+
 <template>
   <section class="scrolling-component" ref="scrollcomponent">
     <section class="container my-body">
       <h1 class="text-center mt-5">FICHA DE INSCRIÇÃO</h1>
-      <div class="alert alert-success mt-3" v-if="success">{{ success }}</div>
-      <div class="alert alert-danger mt-3" v-if="error">{{ error }}</div>
-      <div class="alert alert-warning mt-3" v-if="warning">{{ warning }}</div>
+      <section class="alert mt-3" v-bind:class="'alert-' + message.type">
+        {{ message.msg }}
+      </section>
       <form class="form-signin" v-on:submit.prevent="send">
         <section class="row mt-5">
           <section class="col-md-2">
@@ -111,6 +117,7 @@
               <input
                 class="form-check-input"
                 type="checkbox"
+                v-model="form.notifications"
                 value=""
                 id="subscribenews"
                 checked
@@ -128,7 +135,11 @@
           >
             SUBMETER
           </button>
-          <button type="" class="btn btn-outline-primary mt-4 my-button">
+          <button
+            @click="cleanForm()"
+            type="button"
+            class="btn btn-outline-primary mt-4 my-button"
+          >
             LIMPAR
           </button>
         </section>
@@ -179,11 +190,12 @@ export default {
           username: "",
           password: "",
         },
-        notifications: false,
+        notifications: true,
       },
-      error: "",
-      success: "",
-      warning: "",
+      message: {
+        type: "",
+        msg: "",
+      },
     };
   },
   methods: {
@@ -191,10 +203,7 @@ export default {
       showLoader: LOADING_SPINNER_SHOW_MUTATION,
     }),
     async send() {
-        this.error= "",
-        this.success= "",
-        this.warning= "",
-      this.showLoader(true);
+      (this.message.type = ""), (this.message.msg = ""), this.showLoader(true);
       let postData = {
         firstname: this.form.firstname,
         lastname: this.form.lastname,
@@ -215,23 +224,41 @@ export default {
       await axios
         .post("http://localhost:3000/user", postData)
         .then((response) => {
-            console.log(response)
+          console.log(response);
           if (response.data.http == 201) {
             this.showLoader(false);
-            this.success = "Sucesso!";
-            console.log(response);
+            this.message.type = "success";
+            this.message.msg = "Utilizador criado com sucesso.";
+            this.cleanForm();
           } else if (response.data.http == 200) {
             this.showLoader(false);
-            this.warning = "Utilizador existente!";      
+            this.message.type = "warning";
+            this.message.msg = "Utilizador existente.";
           } else {
-              this.showLoader(false);
-            this.error = "Ocorreu um problema! Tente de novo!";      
+            this.showLoader(false);
+            this.message.type = "danger";
+            this.message.msg = "Ocorreu um problema, tente de novo...";
           }
         })
         .catch(() => {
           this.error = "Valores inválidos!";
           this.showLoader(false);
         });
+    },
+    cleanForm() {
+      (this.form.firstname = ""),
+        (this.form.lastname = ""),
+        (this.form.name = ""),
+        (this.form.course = ""),
+        (this.form.class = ""),
+        (this.form.email = ""),
+        (this.form.mobile = ""),
+        (this.form.bdate = ""),
+        (this.form.auth = {
+          username: "",
+          password: "",
+        }),
+        (this.form.notifications = true);
     },
   },
 };
